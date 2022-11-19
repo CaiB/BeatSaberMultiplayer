@@ -61,21 +61,21 @@ namespace BeatSaberMultiplayer.Misc
             duration = (float)jsonNode["metadata"]["duration"];
             downloads = (int)jsonNode["stats"]["downloads"];
             plays = (int)jsonNode["stats"]["plays"];
-            upVotes = (int)jsonNode["stats"]["upVotes"];
-            downVotes = (int)jsonNode["stats"]["downVotes"];
-            rating = (float)jsonNode["stats"]["rating"];
-            heat = (float)jsonNode["stats"]["heat"];
+            upVotes = (int)jsonNode["stats"]["upvotes"];
+            downVotes = (int)jsonNode["stats"]["downvotes"];
+            rating = (float)jsonNode["stats"]["score"];
+            heat = 0.0F; // TODO: Is this still used?
             description = (string)jsonNode["description"];
-            _id = (string)jsonNode["_id"];
-            key = (string)jsonNode["key"];
+            _id = (string)jsonNode["id"];
+            key = (string)jsonNode["id"]; // TODO: Are these 2 correct? Seems to work...
             name = (string)jsonNode["name"];
-            ownerid = (string)jsonNode["uploader"]["_id"];
-            ownerName = (string)jsonNode["uploader"]["username"];
-            hash = (string)jsonNode["hash"];
+            ownerid = (string)jsonNode["uploader"]["id"];
+            ownerName = (string)jsonNode["uploader"]["name"];
+            hash = (string)(jsonNode["versions"][0]["hash"]);
             hash = hash.ToLower();
             uploaded = (string)jsonNode["uploaded"];
-            downloadURL = Config.Instance.BeatSaverURL + (string)jsonNode["downloadURL"];
-            coverURL = Config.Instance.BeatSaverURL + (string)jsonNode["coverURL"];
+            downloadURL = (string)(jsonNode["versions"][0]["downloadURL"]);
+            coverURL = (string)(jsonNode["versions"][0]["coverURL"]);
         }
 
         public void ConstructFromScoreSaber(JObject jsonNode)
@@ -99,7 +99,7 @@ namespace BeatSaberMultiplayer.Misc
             levelAuthorName = (string)jsonNode["levelAuthorName"];
             songAuthorName = (string)jsonNode["songAuthorName"];
             bpm = (int)jsonNode["bpm"];
-            coverURL = Config.Instance.BeatSaverURL + jsonNode["image"];
+            coverURL = (string)jsonNode["image"];
             hash = (string)jsonNode["id"];
             hash = hash.ToLower();
         }
@@ -114,21 +114,21 @@ namespace BeatSaberMultiplayer.Misc
             buffer.bpm = (float)jsonNode["metadata"]["bpm"];
             buffer.downloads = (int)jsonNode["stats"]["downloads"];
             buffer.plays = (int)jsonNode["stats"]["plays"];
-            buffer.upVotes = (int)jsonNode["stats"]["upVotes"];
-            buffer.downVotes = (int)jsonNode["stats"]["downVotes"];
-            buffer.rating = (float)jsonNode["stats"]["rating"];
-            buffer.heat = (float)jsonNode["stats"]["heat"];
+            buffer.upVotes = (int)jsonNode["stats"]["upvotes"];
+            buffer.downVotes = (int)jsonNode["stats"]["downvotes"];
+            buffer.rating = (float)jsonNode["stats"]["score"];
+            buffer.heat = 0.0F; // TODO: Same as above
             buffer.description = (string)jsonNode["description"];
-            buffer._id = (string)jsonNode["_id"];
-            buffer.key = (string)jsonNode["key"];
+            buffer._id = (string)jsonNode["id"];
+            buffer.key = (string)jsonNode["id"]; // TODO: Same as above
             buffer.name = (string)jsonNode["name"];
-            buffer.ownerid = (string)jsonNode["uploader"]["_id"];
-            buffer.ownerName = (string)jsonNode["uploader"]["username"];
-            buffer.hash = (string)jsonNode["hash"];
+            buffer.ownerid = (string)jsonNode["uploader"]["id"];
+            buffer.ownerName = (string)jsonNode["uploader"]["name"];
+            buffer.hash = (string)(jsonNode["versions"][0]["hash"]);
             buffer.hash = buffer.hash.ToLower();
             buffer.uploaded = (string)jsonNode["uploaded"];
-            buffer.downloadURL = Config.Instance.BeatSaverURL + (string)jsonNode["downloadURL"];
-            buffer.coverURL = Config.Instance.BeatSaverURL + (string)jsonNode["coverURL"];
+            buffer.downloadURL = (string)(jsonNode["versions"][0]["downloadURL"]);
+            buffer.coverURL = (string)(jsonNode["versions"][0]["coverURL"]);
             return buffer;
         }
 

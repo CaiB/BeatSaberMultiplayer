@@ -254,7 +254,8 @@ namespace BeatSaberMultiplayer.Misc
 
         public IEnumerator RequestSongByLevelIDCoroutine(string levelId, Action<Song> callback)
         {
-            UnityWebRequest wwwId = GetRequestForUrl($"{Config.Instance.BeatSaverURL}/api/maps/by-hash/" + levelId.ToLower());
+            string URL = $"{Config.Instance.BeatSaverURL}/maps/hash/{levelId.ToLower()}";
+            UnityWebRequest wwwId = GetRequestForUrl(URL);
             wwwId.timeout = 10;
 
             yield return wwwId.SendWebRequest();
@@ -262,7 +263,7 @@ namespace BeatSaberMultiplayer.Misc
 
             if (wwwId.isNetworkError || wwwId.isHttpError)
             {
-                Plugin.log.Error($"Unable to fetch song by hash! {wwwId.error}\nURL:" + $"{Config.Instance.BeatSaverURL}/api/maps/by-hash/" + levelId.ToLower());
+                Plugin.log.Error($"Unable to fetch song by hash! {wwwId.error}\nURL: {URL}");
             }
             else
             {
@@ -286,7 +287,7 @@ namespace BeatSaberMultiplayer.Misc
 
         public IEnumerator RequestSongByKeyCoroutine(string key, Action<Song> callback)
         {
-            UnityWebRequest wwwId = GetRequestForUrl($"{Config.Instance.BeatSaverURL}/api/maps/detail/" + key.ToLower());
+            UnityWebRequest wwwId = GetRequestForUrl($"{Config.Instance.BeatSaverURL}/maps/id/" + key.ToLower());
             wwwId.timeout = 10;
 
             yield return wwwId.SendWebRequest();
