@@ -343,14 +343,7 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>if defined APPVEYOR goto skipAll
-xcopy /y $(TargetDir)BeatSaberMultiplayer.dll  "C:\Program Files (x86)\Steam\steamapps\common\Beat Saber\Plugins"
-if not exist $(SolutionDir)Output\$(ConfigurationName)\ mkdir $(SolutionDir)Output\$(ConfigurationName)\
-if not exist Final\ mkdir Final\
-if not exist Final\Plugins\ mkdir Final\Plugins\
-xcopy /y $(TargetDir)BeatSaberMultiplayer.dll  "Final\Plugins\"
-del "$(SolutionDir)Output\$(ConfigurationName)\BeatSaberMultiplayer.zip"
-winrar a -afzip -r -ep1 -ibck "$(SolutionDir)Output\$(ConfigurationName)\BeatSaberMultiplayer.zip" "$(TargetDir)Final\*"
-:skipAll</PostBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
 </Project>

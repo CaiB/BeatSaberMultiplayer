@@ -59,8 +59,8 @@ namespace BeatSaberMultiplayer.Misc
             songSubName = (string)jsonNode["metadata"]["songSubName"];
             bpm = (float)jsonNode["metadata"]["bpm"];
             duration = (float)jsonNode["metadata"]["duration"];
-            downloads = (int)jsonNode["stats"]["downloads"];
-            plays = (int)jsonNode["stats"]["plays"];
+            downloads = 0;
+            plays = 0; // These 2 were removed from the API
             upVotes = (int)jsonNode["stats"]["upvotes"];
             downVotes = (int)jsonNode["stats"]["downvotes"];
             rating = (float)jsonNode["stats"]["score"];
@@ -112,8 +112,8 @@ namespace BeatSaberMultiplayer.Misc
             buffer.songName = (string)jsonNode["metadata"]["songName"];
             buffer.songSubName = (string)jsonNode["metadata"]["songSubName"];
             buffer.bpm = (float)jsonNode["metadata"]["bpm"];
-            buffer.downloads = (int)jsonNode["stats"]["downloads"];
-            buffer.plays = (int)jsonNode["stats"]["plays"];
+            buffer.downloads = 0;
+            buffer.plays = 0; // These 2 were removed from the API
             buffer.upVotes = (int)jsonNode["stats"]["upvotes"];
             buffer.downVotes = (int)jsonNode["stats"]["downvotes"];
             buffer.rating = (float)jsonNode["stats"]["score"];
