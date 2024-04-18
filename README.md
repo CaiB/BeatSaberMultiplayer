@@ -1,3 +1,9 @@
+This fork fixes some of the later BeatSaver API changes causing inability to  download songs in-game. See the releases on this fork for the updated binaries.
+
+SteamVR's poor reliability and performance has caused me to lose interest in VR, hence I sold my hardware and no longer play Beat Saber. As such, this repository is archived and unmaintained.
+
+---
+
 # Latest stable version: 0.7.2.4
 
 ## [Download](https://ci.appveyor.com/api/projects/andruzzzhka/beatsabermultiplayer/artifacts/Output/BeatSaberMultiplayer.zip?job=Configuration%3A%20ClientRelease) (Experimental) for Beat Saber 1.8.0-1.11.1
